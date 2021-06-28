@@ -1,4 +1,4 @@
---- 
+--- # https://docs.ansible.com/ansible/latest/collections/ansible/builtin/lineinfile_module.html
 - name: Manage file content
   hosts: amazon
   connection: ssh

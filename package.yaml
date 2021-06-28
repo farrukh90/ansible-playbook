@@ -1,0 +1,7 @@
+--- 
+- name: Add Package
+  hosts: amazon
+  connection: ssh
+  become: true
+  become_method: sudo 
+  tasks: 

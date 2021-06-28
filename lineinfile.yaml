@@ -1,0 +1,7 @@
+--- 
+- name: Manage file content
+  hosts: amazon
+  connection: ssh
+  become: true
+  become_method: sudo 
+  tasks: 

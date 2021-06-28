@@ -1,0 +1,7 @@
+--- 
+- name: Unarchive
+  hosts: amazon
+  connection: ssh
+  become: true
+  become_method: sudo 
+  tasks: 

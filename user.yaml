@@ -1,0 +1,7 @@
+--- 
+- name: Add Users
+  hosts: amazon
+  connection: ssh
+  become: true
+  become_method: sudo 
+  tasks: 

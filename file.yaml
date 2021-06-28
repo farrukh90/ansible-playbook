@@ -1,0 +1,7 @@
+--- 
+- name: Add File
+  hosts: amazon
+  connection: ssh
+  become: true
+  become_method: sudo 
+  tasks: 

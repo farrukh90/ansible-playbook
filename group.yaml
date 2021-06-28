@@ -5,3 +5,7 @@
   become: true
   become_method: sudo 
   tasks: 
+  - name: Ensure group "somegroup" exists
+    ansible.builtin.group:
+      name: somegroup
+      state: present

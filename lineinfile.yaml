@@ -18,3 +18,9 @@
       path: /tmp/testfile
       regexp: '^192.168.1.99'
       line: 172.16.1.99 foo.lab.net foo
+
+  - name: Ensure SELinux is set to enforcing mode
+    ansible.builtin.lineinfile:
+      path: /etc/selinux/config
+      regexp: '^SELINUX='
+      line: SELINUX=permissive

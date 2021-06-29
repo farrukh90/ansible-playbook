@@ -1,4 +1,4 @@
---- # https://docs.ansible.com/ansible/latest/collections/ansible/builtin/unarchive_module.html
+--- # https://docs.ansible.com/ansible/latest/collections/ansible/builtin/get_url_module.html
 - name: Unarchive
   hosts: amazon
   connection: ssh
@@ -13,8 +13,3 @@
       dest: /tmp/wordpress.tar.gz
       mode: '0440'
   
-  - name: Extract wordpress
-    ansible.builtin.unarchive:
-      src: /tmp/wordpress.tar.gz
-      dest: /tmp/
-      remote_src: true

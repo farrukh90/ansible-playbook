@@ -2,6 +2,12 @@
 - name: Manage file content
   hosts: amazon
   connection: ssh
+  user: ec2-user
   become: true
   become_method: sudo 
   tasks: 
+  - name: Add a line to a file if the file does not exist, without passing regexp
+    ansible.builtin.lineinfile:
+      path: /tmp/testfile
+      line: 192.168.1.99 foo.lab.net foo
+      create: yes

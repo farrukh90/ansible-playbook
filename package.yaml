@@ -8,5 +8,11 @@
   tasks: 
   - name: Install telnet 
     package:
-      name: telnet
+      name: "{{ item }}"
       state: present
+    loop:
+    - telnet
+    - httpd 
+    - elinks
+    - lftp
+    ignore_errors: true

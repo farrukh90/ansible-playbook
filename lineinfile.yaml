@@ -17,4 +17,4 @@
     ansible.builtin.lineinfile:
       path: /tmp/testfile
       regexp: '^192.168.1.99'
-      line: 172.16.1.99
+      line: 172.16.1.99 foo.lab.net foo

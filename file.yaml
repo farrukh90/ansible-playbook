@@ -2,6 +2,13 @@
 - name: Add File
   hosts: amazon
   connection: ssh
+  user: ec2-user
   become: true
   become_method: sudo 
   tasks: 
+  - name: Change file ownership, group and permissions
+    ansible.builtin.file:
+      path: /etc/foo.conf
+      owner: foo
+      group: foo
+      mode: '0644'

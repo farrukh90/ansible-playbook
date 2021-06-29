@@ -2,6 +2,13 @@
 - name: Unarchive
   hosts: amazon
   connection: ssh
+  user: ec2-user
   become: true
   become_method: sudo 
   tasks: 
+
+
+  - name: Extract foo.tgz into /var/lib/foo
+    ansible.builtin.unarchive:
+      src: /tmp/testfile.gz
+      dest: /tmp/

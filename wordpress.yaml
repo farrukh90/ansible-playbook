@@ -16,8 +16,11 @@
     - php
     - php-mysql 
     - wget 
+    - mariadb
     notify: 
     - Restart Web Server
+    - Restart DB Server
+
 
   - name: Download wordpress 
     get_url: 
@@ -37,8 +40,15 @@
 
 
   handlers:
+
     - name: Restart Web Server
       systemd: 
         name: httpd 
+        state: restarted
+        enabled: true
+
+    - name: Restart DB Server
+      systemd: 
+        name: mysqld 
         state: restarted
         enabled: true

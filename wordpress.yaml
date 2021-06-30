@@ -40,15 +40,14 @@
 
 
   handlers:
+  - name: Restart Web Server
+    systemd: 
+      name: httpd 
+      state: restarted
+      enabled: true
 
-    - name: Restart Web Server
-      systemd: 
-        name: httpd 
-        state: restarted
-        enabled: true
-
-    - name: Restart DB Server
-      systemd: 
-        name: mariadb 
-        state: restarted
-        enabled: true
+  - name: Restart DB Server
+    systemd: 
+      name: mariadb 
+      state: restarted
+      enabled: true

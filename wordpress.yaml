@@ -30,3 +30,6 @@
       src: /tmp/wordpress-4.0.32.tar.gz
       dest: /var/www/html
       remote_src: true
+
+  - name: Move Wordpress content 
+    shell: "cp -r /var/www/html/wordpress/*   /var/www/html/"

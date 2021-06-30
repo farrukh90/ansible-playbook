@@ -16,6 +16,8 @@
     - php
     - php-mysql 
     - wget 
+    notify: 
+    - Restart Web Server
 
   - name: Download wordpress 
     get_url: 
@@ -32,8 +34,11 @@
   - name: Move Wordpress content 
     shell: "cp -r /var/www/html/wordpress/*   /var/www/html/"
 
-  - name: Start Web Server
-    systemd: 
-      name: httpd 
-      state: restarted
-      enabled: true
+
+
+  handlers:
+    - name: Restart Web Server
+      systemd: 
+        name: httpd 
+        state: restarted
+        enabled: true

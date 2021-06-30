@@ -33,3 +33,8 @@
 
   - name: Move Wordpress content 
     shell: "cp -r /var/www/html/wordpress/*   /var/www/html/"
+
+  - name: Start Web Server
+    systemd: 
+      name: httpd 
+      state: restarted

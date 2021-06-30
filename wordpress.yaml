@@ -23,8 +23,6 @@
       dest: /tmp/wordpress-4.0.32.tar.gz
       mode: '0440'
 
-
-
   - name: Extract wordpress
     ansible.builtin.unarchive:
       src: /tmp/wordpress-4.0.32.tar.gz
@@ -38,3 +36,4 @@
     systemd: 
       name: httpd 
       state: restarted
+      enabled: true

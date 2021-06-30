@@ -49,6 +49,6 @@
 
     - name: Restart DB Server
       systemd: 
-        name: mysqld 
+        name: mariadb 
         state: restarted
         enabled: true

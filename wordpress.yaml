@@ -25,3 +25,8 @@
 
 
 
+  - name: Extract wordpress
+    ansible.builtin.unarchive:
+      src: /tmp/wordpress-4.0.32.tar.gz
+      dest: /var/www/html
+      remote_src: true

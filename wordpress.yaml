@@ -1,0 +1,27 @@
+--- # https://docs.ansible.com/ansible/latest/collections/ansible/builtin/file_module.html
+- name: Install wordpress
+  hosts: amazon
+  connection: ssh
+  user: ec2-user
+  become: true
+  become_method: sudo 
+  tasks: 
+
+  - name: Install Prerequisites
+    package: 
+      name: "{{ item }}"
+      state: present
+    with_items: 
+    - httpd
+    - php
+    - php-mysql 
+    - wget 
+
+  - name: Download wordpress 
+    get_url: 
+      url: https://wordpress.org/wordpress-4.0.32.tar.gz
+      dest: /tmp/wordpress-4.0.32.tar.gz
+      mode: '0440'
+
+
+

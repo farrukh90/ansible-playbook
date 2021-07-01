@@ -22,7 +22,6 @@
     - Restart Web Server
     - Restart DB Server
 
-
   - name: Download wordpress 
     get_url: 
       url: https://wordpress.org/wordpress-4.0.32.tar.gz

@@ -1,0 +1,56 @@
+--- # https://docs.ansible.com/ansible/latest/collections/ansible/builtin/file_module.html
+- name: Install wordpress
+  hosts: amazon
+  connection: ssh
+  user: ec2-user
+  become: true
+  become_method: sudo
+  vars: 
+    wordpress_version: "4.0.32" 
+    php_version: "5.4.16"
+  tasks: 
+  - name: Install Prerequisites
+    when: ansible_facts['distribution'] == "Amazon"
+    package: 
+      name: "{{ item }}"
+      state: present
+    with_items: 
+    - httpd
+    - php-{{ php_version }}
+    - php-mysql-{{ php_version }}
+    - wget 
+    - mariadb
+    notify: 
+    - Restart Web Server
+    - Restart DB Server
+
+  - name: Download wordpress 
+  
+    get_url: 
+      url: https://wordpress.org/wordpress-{{ wordpress_version }}.tar.gz
+      dest: /tmp/wordpress-{{ wordpress_version }}.tar.gz
+      mode: '0440'
+
+  - name: Extract wordpress
+    ansible.builtin.unarchive:
+      src: /tmp/wordpress-{{ wordpress_version }}.tar.gz
+      dest: /var/www/html
+      remote_src: true
+
+  - name: Move Wordpress content 
+    shell: "cp -r /var/www/html/wordpress/*   /var/www/html/"
+
+
+
+  handlers:
+  - name: Restart Web Server
+    systemd: 
+      name: httpd 
+      state: restarted
+      enabled: true
+
+  - name: Restart DB Server
+    systemd: 
+      name: mariadb 
+      state: restarted
+      enabled: true

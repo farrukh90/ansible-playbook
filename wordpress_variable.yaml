@@ -1,4 +1,4 @@
---- # https://docs.ansible.com/ansible/latest/collections/ansible/builtin/file_module.html
+---
 - name: Install wordpress
   hosts: amazon
   connection: ssh
@@ -25,7 +25,6 @@
     - Restart DB Server
 
   - name: Download wordpress 
-  
     get_url: 
       url: https://wordpress.org/wordpress-{{ wordpress_version }}.tar.gz
       dest: /tmp/wordpress-{{ wordpress_version }}.tar.gz

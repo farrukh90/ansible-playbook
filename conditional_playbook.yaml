@@ -1,0 +1,14 @@
+--- # https://docs.ansible.com/ansible/latest/collections/ansible/builtin/file_module.html
+- name: Install Packages
+  hosts: all
+  connection: ssh
+  become: true
+  become_method: sudo 
+  tasks: 
+
+  - name: Install web server
+    when: 
+      - ansible_facts['ansible_distribution'] == "Ubuntu" 
+    package: 
+      name: apache2 
+      state: present 

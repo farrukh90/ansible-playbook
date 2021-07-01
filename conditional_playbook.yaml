@@ -7,8 +7,7 @@
   tasks: 
 
   - name: Install web server
-    when: 
-      - ansible_facts['ansible_distribution'] == "Ubuntu" 
+    when: ansible_facts[‘distribution’] == "Amazon"
     package: 
-      name: apache2 
+      name: httpd 
       state: present 

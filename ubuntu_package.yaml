@@ -4,6 +4,7 @@
   connection: ssh
   user: ubuntu
   become: true
+  gather_facts: no
   become_method: sudo 
   tasks: 
   - name: Install telnet 
@@ -13,6 +14,11 @@
     loop:
     - telnet
     - apache2 
-    - elinks
     - lftp
     ignore_errors: true
+
+
+
+#  ansible-playbook   -i ec2.py      ubuntu_package.yaml 
+
+

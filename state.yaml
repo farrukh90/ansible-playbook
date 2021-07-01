@@ -1,0 +1,23 @@
+--- # https://docs.ansible.com/ansible/latest/collections/ansible/builtin/package_module.html
+- name: Add Package
+  hosts: all
+  connection: ssh
+  user: ubuntu
+  become: true
+  gather_facts: no
+  become_method: sudo 
+  tasks: 
+  - name: state
+    package: 
+      name: telnet 
+      state: present              # Install,     #latest Update      #absent 
+
+  - name: Start Server 
+    systemd: 
+      name: httpd 
+      state: restarted      # stopped    # started 
+
+  - name: add user 
+    user: 
+      name: bob 
+      state: present     #absent 

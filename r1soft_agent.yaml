@@ -1,6 +1,6 @@
 --- # http://wiki.r1soft.com/display/ServerBackup/Install+Backup+Agent+on+Debian+and+Ubuntu+manually
 - name: Install R1soft Agent
-  hosts: ubuntu
+  hosts: all
   connection: ssh
   user: ubuntu
   become: true

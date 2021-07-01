@@ -6,8 +6,15 @@
   become_method: sudo 
   tasks: 
 
-  - name: Install web server
-    when: ansible_facts[‘distribution’] == "Amazon"
+  - name: Install web server on Amazon
+    when: ansible_facts['distribution'] == "Amazon"
     package: 
       name: httpd 
+      state: present 
+
+
+  - name: Install web server On Ubuntu
+    when: ansible_facts['distribution'] == "Ubuntu"
+    package: 
+      name: apache2 
       state: present 

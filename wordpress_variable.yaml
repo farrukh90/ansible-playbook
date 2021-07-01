@@ -5,9 +5,8 @@
   user: ec2-user
   become: true
   become_method: sudo
-  vars: 
-    wordpress_version: "4.0.32" 
-    php_version: "5.4.16"
+  vars_file:
+  - envs/dev.yaml 
   tasks: 
   - name: Install Prerequisites
     when: ansible_facts['distribution'] == "Amazon"

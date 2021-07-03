@@ -1,8 +1,5 @@
 ---  # https://docs.ansible.com/ansible/latest/collections/ansible/builtin/user_module.html
 - name: Add Users
-  hosts: all
-  become: true
-  become_method: sudo 
   tasks: 
   - name: Add Users
     user: 

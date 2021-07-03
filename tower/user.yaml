@@ -1,0 +1,13 @@
+---  # https://docs.ansible.com/ansible/latest/collections/ansible/builtin/user_module.html
+- name: Add Users
+  hosts: all
+  tasks: 
+  - name: Add Users
+    user: 
+      name: "{{ item }}"
+      state: present
+    with_items:
+    - bob
+    - lisa
+    - ben
+    - tom

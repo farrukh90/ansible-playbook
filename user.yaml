@@ -1,6 +1,6 @@
 ---  # https://docs.ansible.com/ansible/latest/collections/ansible/builtin/user_module.html
 - name: Add Users
-  hosts: ubuntu
+  hosts: all
   tasks: 
   - name: Add Users
     user: 

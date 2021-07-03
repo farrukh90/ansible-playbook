@@ -60,7 +60,7 @@
       region: "{{ region }}"
       state: "{{ state }}"
       vpc_id: "{{ Ansible.vpc.id }}"
-      cidr: "{{ public_subnet2_cidr }}"
+      cidr: "{{ private_subnet1_cidr }}"
       az: "{{ region }}a"
       tags: "{{ aws_tags }}"
     register: private_subnet1

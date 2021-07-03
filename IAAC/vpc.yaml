@@ -54,3 +54,33 @@
       map_public: true
       tags: "{{ aws_tags }}"
     register: public_subnet3
+
+
+
+  - name: Create private subnet 1
+    amazon.aws.ec2_vpc_subnet:
+      region: "{{ region }}"
+      state: "{{ state }}"
+      vpc_id: "{{ Ansible.vpc.id }}"
+      cidr: "{{ public_subnet2_cidr }}"
+      az: "{{ region }}a"
+      tags: "{{ aws_tags }}"
+    register: private_subnet1
+  - name: Create private subnet 2
+    amazon.aws.ec2_vpc_subnet:
+      region: "{{ region }}"
+      state: "{{ state }}"
+      vpc_id: "{{ Ansible.vpc.id }}"
+      cidr: "{{ private_subnet2_cidr }}"
+      az: "{{ region }}b"
+      tags: "{{ aws_tags }}"
+    register: private_subnet1
+  - name: Create private subnet 3
+    amazon.aws.ec2_vpc_subnet:
+      region: "{{ region }}"
+      state: "{{ state }}"
+      vpc_id: "{{ Ansible.vpc.id }}"
+      cidr: "{{ private_subnet3_cidr }}"
+      az: "{{ region }}c"
+      tags: "{{ aws_tags }}"
+    register: private_subnet1

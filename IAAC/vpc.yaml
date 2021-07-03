@@ -64,6 +64,7 @@
       az: "{{ region }}a"
       tags: "{{ aws_tags }}"
     register: private_subnet1
+    
   - name: Create private subnet 2
     amazon.aws.ec2_vpc_subnet:
       region: "{{ region }}"
@@ -72,7 +73,8 @@
       cidr: "{{ private_subnet2_cidr }}"
       az: "{{ region }}b"
       tags: "{{ aws_tags }}"
-    register: private_subnet1
+    register: private_subnet2
+    
   - name: Create private subnet 3
     amazon.aws.ec2_vpc_subnet:
       region: "{{ region }}"
@@ -81,7 +83,7 @@
       cidr: "{{ private_subnet3_cidr }}"
       az: "{{ region }}c"
       tags: "{{ aws_tags }}"
-    register: private_subnet1
+    register: private_subnet3
 
 
   - name: Create Internet gateway

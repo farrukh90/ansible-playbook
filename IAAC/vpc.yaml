@@ -20,8 +20,6 @@
     debug:
       var: Ansible
 
-
-
   - name: Create public subnet 1
     amazon.aws.ec2_vpc_subnet:
       region: "{{ region }}"
@@ -84,3 +82,12 @@
       az: "{{ region }}c"
       tags: "{{ aws_tags }}"
     register: private_subnet1
+
+
+  - name: Create Internet gateway
+    community.aws.ec2_vpc_igw:
+      region: "{{ region }}"
+      vpc_id: "{{ Ansible.vpc.id }}"
+      state: "{{ state }}"
+      tags: "{{ aws_tags }}"
+    register: igw

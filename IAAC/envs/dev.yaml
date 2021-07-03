@@ -23,3 +23,11 @@ list_of_users:
 password: "3l6EUHxi2wL8XNR$$OUdJYES@wL#Fi6hCokl6IployJrJyRC7e"
 access_key_state: create
 
+
+
+
+# List of Group in Dev Account
+list_of_groups:
+- management
+- sales
+- devops

@@ -12,3 +12,13 @@
       password: "{{ password }}"
       access_key_state: "{{ access_key_state }}"
     loop: "{{ list_of_users }}"
+
+
+
+  - name: Create Groups
+    community.aws.iam:
+      iam_type: group
+      name: "{{ item }}"
+      state: present
+    loop: "{{ list_of_groups }}"
+    register: new_groups

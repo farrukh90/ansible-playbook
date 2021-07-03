@@ -14,3 +14,43 @@
       tags: "{{ aws_tags }}"
       tenancy: "{{ tenancy }}"
     register: Ansible
+
+
+  - name: Get some Info
+    debug:
+      var: Ansible
+
+
+
+  - name: Create public subnet 1
+    amazon.aws.ec2_vpc_subnet:
+      region: "{{ region }}"
+      state: "{{ state }}"
+      vpc_id: "{{ Ansible.vpc.id }}"
+      cidr: "{{ public_subnet1_cidr }}"
+      az: "{{ region }}a"
+      map_public: true
+      tags: "{{ aws_tags }}"
+    register: public_subnet1
+
+  - name: Create public subnet 2
+    amazon.aws.ec2_vpc_subnet:
+      region: "{{ region }}"
+      state: "{{ state }}"
+      vpc_id: "{{ Ansible.vpc.id }}"
+      cidr: "{{ public_subnet2_cidr }}"
+      az: "{{ region }}b"
+      map_public: true
+      tags: "{{ aws_tags }}"
+    register: public_subnet2
+
+  - name: Create public subnet 3
+    amazon.aws.ec2_vpc_subnet:
+      region: "{{ region }}"
+      state: "{{ state }}"
+      vpc_id: "{{ Ansible.vpc.id }}"
+      cidr: "{{ public_subnet3_cidr }}"
+      az: "{{ region }}c"
+      map_public: true
+      tags: "{{ aws_tags }}"
+      register: public_subnet3

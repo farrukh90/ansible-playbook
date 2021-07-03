@@ -12,3 +12,14 @@ aws_tags:
   Name: Ansible
   Team: DevOps
   Created_by: Team
+
+
+
+
+# List of Users in Dev Account
+list_of_users:
+- bob
+- ken
+password: "3l6EUHxi2wL8XNR$$OUdJYES@wL#Fi6hCokl6IployJrJyRC7e"
+access_key_state: create
+

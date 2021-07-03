@@ -1,0 +1,28 @@
+---
+- name: Install NCPA
+  hosts: centos 
+  become: true
+  become_method: sudo 
+  user: centos 
+  tasks: 
+  - name: Download repo 
+    shell: sudo rpm -Uvh http://repo.nagios.com/nagios/7/nagios-repo-7-4.el7.noarch.rpm
+  
+  - name: Install NCPA 
+    package: 
+      name: ncpa 
+      state: present 
+
+  - name: Configure NCPA Token 
+    lineinfile: 
+      path: /usr/local/ncpa/etc/ncpa.cfg
+      regexp: ^community_string
+      line: community_string = "StrOng"
+    notify: NCPA_RESTART 
+
+  handlers:
+  - name: NCPA_RESTART
+    systemd: 
+      name: ncpa_listener
+      state: restarted
+      enabled: true

@@ -53,4 +53,4 @@
       az: "{{ region }}c"
       map_public: true
       tags: "{{ aws_tags }}"
-      register: public_subnet3
+    register: public_subnet3

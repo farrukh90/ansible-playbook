@@ -6,7 +6,7 @@
   user: centos 
   tasks: 
   - name: Download repo 
-    shell: sudo rpm -Uvh http://repo.nagios.com/nagios/7/nagios-repo-7-4.el7.noarch.rpm
+    shell: rpm -Uvh http://repo.nagios.com/nagios/7/nagios-repo-7-4.el7.noarch.rpm
   
   - name: Install NCPA 
     package: 

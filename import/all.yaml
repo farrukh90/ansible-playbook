@@ -1,0 +1,17 @@
+---  # https://docs.ansible.com/ansible/latest/collections/community/aws/iam_module.html
+- name: Add AWS IAM user
+  hosts: localhost
+  become: true
+  become_method: sudo
+  tasks: 
+  
+- name: Include playbook1
+  import_playbook: playbook1.yaml
+
+
+- name: Include playbook2
+  import_playbook: playbook2.yaml
+
+
+- name: Include playbook3
+  import_playbook: playbook3.yaml

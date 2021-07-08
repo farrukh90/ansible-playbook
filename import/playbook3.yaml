@@ -1,0 +1,10 @@
+---  # https://docs.ansible.com/ansible/latest/collections/community/aws/iam_module.html
+- name: Add AWS IAM user
+  hosts: localhost
+  become: true
+  become_method: sudo
+  tasks: 
+  - name: Add the user john
+    ansible.builtin.user:
+      name: johnd
+      comment: John Doe

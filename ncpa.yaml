@@ -1,9 +1,6 @@
 ---
 - name: Install NCPA
-  hosts: centos 
-  become: true
-  become_method: sudo 
-  user: centos 
+  hosts: all
   tasks: 
   - name: Download repo 
     shell: rpm -Uvh http://repo.nagios.com/nagios/7/nagios-repo-7-4.el7.noarch.rpm

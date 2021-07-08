@@ -3,7 +3,7 @@
   hosts: all
   tasks: 
   - name: Install telnet 
-    package:
+    ansible.builtin.package:
       name: "{{ item }}"
       state: present
     loop:

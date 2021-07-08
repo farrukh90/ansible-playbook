@@ -11,4 +11,5 @@
     - httpd 
     - elinks
     - lftp
+    - unzip
     ignore_errors: true

@@ -1,0 +1,7 @@
+---
+- name: installs datadog
+  hosts: all
+  roles:
+    - { role: datadog.datadog, become: yes }
+  vars:
+    datadog_api_key: "<YOUR_DD_API_KEY>"
